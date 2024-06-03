@@ -7,7 +7,7 @@ import sbt.Keys.{scalacOptions, _}
 import sbt._
 import uk.gov.hmrc.SbtAutoBuildPlugin
 
-val appName = "customs-declare-exports-frontend"
+val appName = "tdr-customs-declare-exports-frontend"
 
 PlayKeys.devSettings := Seq("play.server.http.port" -> "6791")
 
