@@ -6,7 +6,7 @@
 // @author    You
 // @match     http*://*/auth-login-stub/gg-sign-in?continue=*customs-declare-exports*
 // @grant     none
-// @updateURL https://raw.githubusercontent.com/hmrc/customs-declare-exports-frontend/master/docs/Customs%20Declare%20Exports%20Auth%20AutoComplete.js
+// @updateURL https://raw.githubusercontent.com/hmrc/tdr-customs-declare-exports-frontend/master/docs/Customs%20Declare%20Exports%20Auth%20AutoComplete.js
 // ==/UserScript==
 
 (function() {
