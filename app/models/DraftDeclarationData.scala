@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-package controllers
+package models
 
-import base.ControllerWithoutFormSpec
-import controllers.routes.ChoiceController
-import play.api.test.Helpers._
+import models.declaration.DeclarationStatus.DeclarationStatus
+import play.api.libs.json.{Json, OFormat}
 
-class RootControllerSpec extends ControllerWithoutFormSpec {
+import java.time.Instant
 
-  val controller = new RootController(mcc)
+case class DraftDeclarationData(id: String, ducr: Option[String], status: DeclarationStatus, updatedDateTime: Instant)
 
-  "Root Controller" should {
-    "return 303" when {
-      "display page method is invoked" in {
-        val result = controller.displayPage(getRequest())
-        status(result) mustBe SEE_OTHER
-        redirectLocation(result) mustBe Some(ChoiceController.displayPage.url)
-      }
-    }
-  }
+object DraftDeclarationData {
+
+  implicit val format: OFormat[DraftDeclarationData] = Json.format[DraftDeclarationData]
 }

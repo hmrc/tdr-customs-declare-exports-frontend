@@ -17,8 +17,6 @@
 package controllers
 
 import base.ControllerWithoutFormSpec
-import config.AppConfig
-import handlers.ErrorHandler
 import mock.FeatureFlagMocks
 import models.declaration.notifications.Notification
 import models.declaration.submissions.Action
@@ -28,12 +26,12 @@ import org.mockito.ArgumentMatchers.any
 import org.mockito.Mockito.{reset, verify, when}
 import org.scalatest.{Assertion, OptionValues}
 import play.api.libs.json.Json
-import play.api.mvc.{Action => PlayAction, AnyContent, BodyParser, Request, Result}
 import play.api.mvc.Results.Ok
+import play.api.mvc.{Action => PlayAction, AnyContent, BodyParser, Request, Result}
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.twirl.api.HtmlFormat
-import views.html.{error_template, rejected_notification_errors}
+import views.html.rejected_notification_errors
 
 import scala.concurrent.ExecutionContext.global
 import scala.concurrent.{ExecutionContext, Future}
@@ -43,18 +41,15 @@ class RejectedNotificationsControllerSpec extends ControllerWithoutFormSpec with
   private val mockErrorPage = mock[rejected_notification_errors]
   private val mockErrorsReportedController = mock[ErrorsReportedController]
 
-  private val mcc = stubMessagesControllerComponents()
-
   private val controller = new RejectedNotificationsController(
     mockAuthAction,
     mockVerifiedEmailAction,
-    new ErrorHandler(mcc.messagesApi, instanceOf[error_template])(instanceOf[AppConfig]),
+    errorHandler,
     mockCustomsDeclareExportsConnector,
     mcc,
     mockNewErrorReportConfig,
     mockErrorsReportedController,
-    mockErrorPage,
-    mockTdrFeatureFlags
+    mockErrorPage
   )(global)
 
   private val declarationId = "DeclarationId"
@@ -66,7 +61,6 @@ class RejectedNotificationsControllerSpec extends ControllerWithoutFormSpec with
 
     when(mockErrorPage.apply(any(), any(), any(), any(), any())(any(), any())).thenReturn(HtmlFormat.empty)
     when(mockNewErrorReportConfig.isNewErrorReportEnabled).thenReturn(false)
-    when(mockTdrFeatureFlags.showErrorPageVersionForTdr).thenReturn(false)
 
     val fakeAction = new PlayAction[AnyContent] {
       override def parser: BodyParser[AnyContent] = ???
@@ -108,14 +102,6 @@ class RejectedNotificationsControllerSpec extends ControllerWithoutFormSpec with
 
         status(result) mustBe OK
         verify(mockErrorsReportedController).displayPage(any())
-      }
-
-      "the showErrorPageVersionForTdr is enabled" in {
-        when(mockTdrFeatureFlags.showErrorPageVersionForTdr).thenReturn(true)
-
-        fetchDeclaration(declarationId)
-        findNotifications(declarationId)
-
       }
     }
 
@@ -161,15 +147,6 @@ class RejectedNotificationsControllerSpec extends ControllerWithoutFormSpec with
 
         status(result) mustBe OK
         verify(mockErrorsReportedController).displayPageOnUnacceptedAmendment(any(), any())
-      }
-
-      "the showErrorPageVersionForTdr is enabled" in {
-        when(mockTdrFeatureFlags.showErrorPageVersionForTdr).thenReturn(true)
-
-        fetchAction(failedAction)
-        fetchDeclaration(failedAction.decId.value)
-        fetchLatestNotification(failedNotification)
-
       }
     }
 

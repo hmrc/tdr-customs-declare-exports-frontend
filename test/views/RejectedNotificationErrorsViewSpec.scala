@@ -19,7 +19,7 @@ package views
 import base.{Injector, OverridableInjector}
 import config.featureFlags.TdrFeatureFlags
 import controllers.declaration.routes.AdditionalDocumentsController
-import controllers.routes.{DeclarationDetailsController, SavedDeclarationsController, SubmissionsController}
+import controllers.routes.{DeclarationDetailsController, DraftDeclarationController, SubmissionsController}
 import models.Pointer
 import models.declaration.notifications.NotificationError
 import org.jsoup.nodes.Document
@@ -76,8 +76,8 @@ class RejectedNotificationErrorsViewSpec extends UnitViewSpec with ExportsTestHe
       amendmentView.getElementsByClass("govuk-warning-text").first must containText(messages("rejected.amendment.warning"))
     }
 
-    "have correct section header" in {
-      defaultView.getElementById("section-header").text mustBe messages("mrn.heading", MRN.value)
+    "have the expected MRN hint" in {
+      defaultView.getElementsByClass("submission-mrn").text mustBe messages("mrn.heading", MRN.value)
     }
 
     "have correct back link" in {
@@ -188,7 +188,7 @@ class RejectedNotificationErrorsViewSpec extends UnitViewSpec with ExportsTestHe
 
       val links = document.getElementsByClass("govuk-link--no-visited-state")
       links.size mustBe 3
-      links.get(2) must haveHref(SavedDeclarationsController.displayDeclarations())
+      links.get(2) must haveHref(DraftDeclarationController.displayDeclarations())
     }
 
     "contain change error link" when {

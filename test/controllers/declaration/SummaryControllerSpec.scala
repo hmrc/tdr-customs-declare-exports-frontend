@@ -17,13 +17,10 @@
 package controllers.declaration
 
 import base.{AuditedControllerSpec, ControllerWithoutFormSpec}
-import config.AppConfig
 import controllers.declaration.SummaryControllerSpec.{expectedHref, fakeSummaryPage}
 import controllers.declaration.routes.SummaryController
-import controllers.routes.SavedDeclarationsController
+import controllers.routes.DraftDeclarationController
 import forms.{Lrn, LrnValidator}
-import handlers.ErrorHandler
-import mock.ErrorHandlerMocks
 import models.declaration.DeclarationStatus.AMENDMENT_DRAFT
 import org.jsoup.Jsoup
 import org.mockito.ArgumentCaptor
@@ -39,27 +36,23 @@ import views.helpers.ActionItemBuilder.lastUrlPlaceholder
 import views.helpers.summary.SummaryHelper.{continuePlaceholder, lrnDuplicateError, noItemsError}
 import views.html.declaration.amendments.amendment_summary
 import views.html.declaration.summary._
-import views.html.error_template
 
 import scala.concurrent.{ExecutionContext, Future}
 
-class SummaryControllerSpec
-    extends ControllerWithoutFormSpec with AuditedControllerSpec with ErrorHandlerMocks with OptionValues with SubmissionBuilder {
+class SummaryControllerSpec extends ControllerWithoutFormSpec with AuditedControllerSpec with OptionValues with SubmissionBuilder {
 
   private val amendmentSummaryPage = mock[amendment_summary]
   private val normalSummaryPage = mock[normal_summary_page]
   private val mockSummaryPageNoData = mock[summary_page_no_data]
   private val mockLrnValidator = mock[LrnValidator]
 
-  private val normalModeBackLink = SavedDeclarationsController.displayDeclarations()
-
-  private val mcc = stubMessagesControllerComponents()
+  private val normalModeBackLink = DraftDeclarationController.displayDeclarations()
 
   private val controller = new SummaryController(
     mockAuthAction,
     mockVerifiedEmailAction,
     mockJourneyAction,
-    new ErrorHandler(mcc.messagesApi, instanceOf[error_template])(instanceOf[AppConfig]),
+    errorHandler,
     mockCustomsDeclareExportsConnector,
     mockExportsCacheService,
     mcc,
@@ -270,7 +263,7 @@ class SummaryControllerSpec
 
         status(result) mustBe OK
 
-        val backLink = SavedDeclarationsController.displayDeclarations()
+        val backLink = DraftDeclarationController.displayDeclarations()
         val errors = Seq(noItemsError)
 
         verify(normalSummaryPage, times(1)).apply(eqTo(backLink), eqTo(errors), any())(any(), any(), any())
