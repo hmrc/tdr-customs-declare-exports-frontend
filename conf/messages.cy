@@ -829,6 +829,7 @@ amendment.details.amended.value = Gwerth diwygiedig
 
 draft.declarations.title = Eich datganiadau sydd wedi’u cadw
 draft.declarations.title.amendments = Eich datganiadau a diwygiadau sydd wedi’u cadw
+draft.declarations.paragraph = Dewiswch DUCR i fwrw golwg dros a chwblhau datganiad drafft. Mae datganiadau drafft yn cael eu cadw am 30 diwrnod.
 draft.declarations.ducr = DUCR
 draft.declarations.noDucr = Dim DUCR wedi’i ychwanegu
 draft.declarations.dateSaved = Dyddiad ac amser wedi’u cadw
@@ -2170,19 +2171,24 @@ declaration.confirmation.pending.amendment.title = Mae’ch cais am ddiwygiad yn
 declaration.confirmation.pending.amendment.paragraph = Ewch yn ôl i’r dudalen {0} er mwyn gwirio hynt eich cais am ddiwygiad. Dylai fod ar gael ymhen ychydig o funudau.
 declaration.confirmation.pending.amendment.paragraph.link = Manylion y datganiad
 
-declaration.confirmation.accepted.title = Datganiad wedi’i dderbyn
-declaration.confirmation.accepted.next.1 = Mae’n bosibl y bydd gwiriadau tollau pellach yn cael eu cynnal. Byddwch yn cael gwybod am unrhyw gamau i’w cymryd drwy {0}, sef eich cyfeiriad e-bost CDS cofrestredig, ac drwy {1}.
-declaration.confirmation.accepted.next.2 = Os nad yw statws eich datganiad wedi newid cyn pen 2 awr i amser y derbyniad hwn, {0}, dylech {1}.
+declaration.confirmation.actionRequired.title = Mae’ch datganiad wedi’i gyflwyno - mae angen cymryd camau
+declaration.confirmation.actionRequired.warning = Camau i’w cymryd: Uwchlwytho’r dogfennau sydd ar goll.
+declaration.confirmation.actionRequired.paragraph1 = Mae’ch datganiad wedi’i gyflwyno ond mae angen atodi un neu fwy o ddogfennau o hyd.
+declaration.confirmation.actionRequired.paragraph2 = Dewch o hyd i’r cyfarwyddiadau ar gyfer uwchlwytho ar y dudalen sy’n dangos manylion y datganiad.
 
-declaration.confirmation.cleared.title = Datganiad wedi’i dderbyn, mae gan y nwyddau ganiatâd i symud ymlaen
-declaration.confirmation.cleared.body.1 = Gallwch wirio statws eich datganiad ac argraffu’r ddogfen ategol ar gyfer allforio (EAD) ar {0}.
-declaration.confirmation.cleared.body.2 = Os yw’ch cludwr yn defnyddio’r Gwasanaeth Symud Cerbydau Nwyddau (GVMS), gwnewch yn siŵr bod ganddynt y Datganiad o Gyfeirnod Unigryw y Llwyth (DUCR) er mwyn iddynt greu cyfeirnod symud nwyddau (GMR). Os oeddech eisoes wedi rhoi’r DUCR iddynt, gallant gwblhau’r GMR nawr.
+declaration.confirmation.submitted.title = Mae’ch datganiad wedi’i gyflwyno
+declaration.confirmation.submitted.whatHappensNext.paragraph = Mae’r cais o ran datganiad bellach yn aros hyd nes bod gwiriad wedi’i gynnal. Bydd hyn yn cymryd ychydig o funudau.
 
-declaration.confirmation.needsDocument.title = Mae angen atodi dogfennau at eich datganiad
-declaration.confirmation.needsDocument.warning = Mae’n rhaid i chi uwchlwytho dogfennau sy’n barod i’w gwirio wrth y tollau.
-declaration.confirmation.needsDocument.body.2 = Gwiriwch y gofynion ac uwchlwytho dogfennau o {0}.
+declaration.confirmation.checkDetails.title = Nawr gwiriwch dudalen statws y datganiad
+declaration.confirmation.checkDetails.link = Gwiriwch y dudalen sy’n dangos manylion y datganiad
 
-declaration.confirmation.other.title = Mae’ch datganiad yn dal i gael ei wirio
+declaration.confirmation.submitted.checkDetails.paragraph = Mae’n bosibl y bydd yn dal i fod angen i chi gywiro unrhyw wallau neu uwchlwytho dogfen sydd ar goll.
+declaration.confirmation.submitted.checkDetails.link = Gwiriwch y dudalen sy’n dangos manylion y datganiad
+
+declaration.confirmation.pendingNotification.title = Mae’ch datganiad sydd wedi ei gyflwyno yn dal i gael ei wirio
+declaration.confirmation.pendingNotification.paragraph1 = Mae’n cymryd mwy o amser nag arfer i wirio’ch datganiad. Caniatewch ychydig o funudau i’r gwiriad gael ei gwblhau.
+declaration.confirmation.pendingNotification.paragraph2 = Ar ôl iddo gwblhau rhoddir Cyfeirnod Symud (MRN) i’ch datganiad. Dangosir hyn ar y dudalen sy’n dangos manylion y datganiad.
+
 declaration.confirmation.other.body.1 = Bydd eich datganiad{0}{1} yn cael cyfeirnod symud yn fuan. Ewch i {2} i ddarganfod statws y datganiad hwn a gweld a oes angen i chi weithredu o gwbl.
 declaration.confirmation.other.body.1.link = Eich datganiadau
 declaration.confirmation.other.body.2 = Dylai’r canlyniad fod ar gael yn syth neu o fewn ychydig funudau.
@@ -2201,7 +2207,7 @@ declaration.confirmation.body.1.lrn = (eich cyfeirnod {0})
 declaration.confirmation.body.2 = Gallwch wirio statws eich datganiad ac argraffu’r ddogfen ategol ar gyfer allforio (EAD) ar {0}.
 declaration.confirmation.declaration.details.link = Manylion y datganiad
 declaration.confirmation.next.2.link = cysylltwch â’r Ganolfan Clirio Genedlaethol
-declaration.confirmation.what.happens.next = Yr hyn sy’n digwydd nesaf
+declaration.confirmation.whatHappensNext = Yr hyn sy’n digwydd nesaf
 
 declaration.confirmation.whatYouCanDoNow.heading = Yr hyn y gallwch ei wneud nawr
 declaration.confirmation.whatYouCanDoNow.nonGvms.paragraph = Gallwch hefyd {0} drwy ei gysylltu, ynghyd â llwythi eraill, â phrif lwyth. Byddwch hefyd yn gallu trefnu i’r datganiad hwn {1} os ydych yn llwythwr cofrestredig.
@@ -2217,13 +2223,16 @@ declaration.exitSurvey.link = Anfonwch eich adborth atom
 
 declaration.country.dropdown.hint = Teipiwch o leiaf 2 lythyren i chwilio am wlad
 
-declaration.draft.title = Mae’ch datganiad wedi’i gadw
-declaration.draft.info = Caiff eich gwybodaeth ei dal tan {0}
+declaration.draft.title = Bydd eich datganiad drafft yn cael ei gadw am 30 diwrnod
+declaration.draft.info = Bydd y datganiad drafft yn cael ei gadw tan {0}
 declaration.draft.saved = Mae’ch datganiad wedi’i gadw hyd at y pwynt pan wnaethoch adael.
 declaration.draft.nextHeading = Yr hyn y gallwch ei wneud nesaf
 declaration.draft.nextText = Gallwch {0} neu gallwch {1}.
-declaration.draft.nextContinueLink = fynd yn eich blaen â datganiad sydd wedi’i gadw
-declaration.draft.nextStartFreshLink = dechreuwch un newydd
+declaration.draft.nextContinueLink = fynd yn eich blaen â datganiad drafft wedi’i arbed
+declaration.draft.nextStartFreshLink = ddechrau un newydd
+declaration.draft.nextViewSummary = Gallwch hefyd {0}
+declaration.draft.nextViewSummary.link = bwrw golwg dros grynodeb o’ch datganiad
+
 declaration.draft.viewSummary = Bwrw golwg dros grynodeb o’r datganiad
 
 legal.declaration.heading = Nawr, cyflwynwch eich datganiad
@@ -2253,26 +2262,35 @@ rejected.amendment.guidance.section.2.paragraph.1 = Os byddwch chi’n dechrau t
 
 rejected.notification.description.heading = Disgrifiad
 rejected.notification.mrn.missing = Dim MRN
-rejected.notification.title = Diwygio gwallau sy’n ymwneud â datganiadau tollau (fersiwn wedi’i wella)
+rejected.notification.title = Cywiro gwallau datganiad
 rejected.notification.table.title = Gwallau’r datganiad
-rejected.notification.warning = Mae’n rhaid i chi ddiwygio’r gwallau hyn ac ailgyflwyno’ch datganiad pan fyddwch wedi gorffen.
+rejected.notification.warning = Mae angen i chi cywiro’r gwallau hyn ac ailgyflwyno’ch datganiad. Defnyddiwch y cysylltiadau ar gyfer newid o dan y pennawd gweithredu (isod) i fwrw golwg a chywiro bob gwall. Pan fydd y gwallau wedi’u cywiro, ewch i’r dudalen ar gyfer gwirio’ch atebion, ac ailgyflwyno’ch datganiad.
 rejected.notification.description.format = Cod gwall {0}.
-rejected.notification.check.answers.paragraph = Pan fyddwch wedi diwygio pob gwall drwy ddefnyddio’r cysylltiadau newid, gwiriwch eich atebion ac yna ailgyflwynwch eich datganiad.
 rejected.notification.check.answers.paragraph.tdr = Defnyddiwch y cysylltiadau newid ar y dudalen Gwirio’ch atebion i drwsio pob gwall. Yna, ewch ati i ailgyflwyno’ch datganiad.
 rejected.notification.check.answers.button = Gwiriwch eich atebion
 
-rejected.notification.guidance.section.1.header = Trwsio gwallau
-rejected.notification.guidance.section.1.paragraph.1 = Gall un gwall yn eich datganiad achosi i wallau cysylltiedig ymddangos mewn rhannau eraill o’r datganiad. Os bydd hyn yn digwydd, mae’n bosibl y gwelwch godau gwall yn cael eu hailadrodd.
+rejected.notification.fieldTable.error = Gwall
+rejected.notification.fieldTable.column.2.title = Eich ymateb cyntaf
+rejected.notification.fieldTable.column.3.title = Eich ymateb wedi’i ddiweddaru
+rejected.notification.fieldTable.column.4.title = Camau
 
-rejected.notification.guidance.section.2.header = Cadw’ch cynnydd
-rejected.notification.guidance.section.2.paragraph.1 = Os byddwch chi’n dechrau trwsio’r gwallau, bydd eich cynnydd yn cael ei gadw. Gallwch fynd yn ôl i’r {0} i drwsio rhagor o wallau.
-rejected.notification.guidance.section.2.paragraph.1.link = dudalen datganiadau sydd wedi’i chadw
+rejected.notification.guidance.section.1.header = Bydd unrhyw gynnydd yn cael ei gadw
+rejected.notification.guidance.section.1.paragraph.1 = Os byddwch chi’n dechrau trwsio’r gwallau, bydd eich cynnydd yn cael ei gadw. Gallwch fynd yn ôl i’r {0} i drwsio rhagor o wallau.
+rejected.notification.guidance.section.1.paragraph.1.link = dudalen datganiadau sydd wedi’i chadw
 
-rejected.notification.guidance.section.3.header = Help i drwsio gwallau
+rejected.notification.guidance.section.2.header = Help gyda chywiro gwallau
+rejected.notification.guidance.section.2.paragraph.1 = Gall un gwall yn eich datganiad achosi i wallau cysylltiedig ymddangos mewn rhannau eraill o’r datganiad. Os bydd hyn yn digwydd, mae’n bosibl y gwelwch godau gwall yn cael eu hailadrodd.
+rejected.notification.guidance.section.2.paragraph.2 = Er mwyn rhoi gwybod am broblem, defnyddiwch y botwm penodol ar gyfer rhoi gwybod am broblem drwy ddefnyddio’r Gwasanaeth Datganiadau Tollau.
+rejected.notification.guidance.section.2.link.1 = Rhowch wybod am broblem drwy ddefnyddio’r Gwasanaeth Datganiadau Tollau
+
+rejected.notification.guidance.section.3.header = Adnoddau defnyddiol eraill
+rejected.notification.guidance.section.3.link.1 = Datrysiadau ar gyfer gwallau hysbys yn y Gwasanaeth Datganiadau Tollau
+rejected.notification.guidance.section.3.link.2 = Arweiniad ar godau gwall Gwasanaeth Datganiadau Tollau
 rejected.notification.guidance.section.3.paragraph.1 = Os oes angen help arnoch gyda gwallau sy’n gysylltiedig â gofynion Tariff penodol (megis dogfennau coll), ffoniwch y ddesg gymorth.
 rejected.notification.guidance.section.3.paragraph.2 = Ffôn: 0300 200 3705
 rejected.notification.guidance.section.3.paragraph.3 = Dydd Llun i Ddydd Gwener, 08:30 i 17:00 (heblaw am benwythnosau a gwyliau’r banc)
-rejected.notification.tdr.guidance.section.3.paragraph.1 = Os oes angen help arnoch gyda dogfennau sydd ar goll neu wallau’n ymwneud â gofynion tariff penodol, gallwch gysylltu â CThEF drwy e-bost.
+
+rejected.notification.tdr.guidance.section.3.paragraph.1 = Os oes angen help arnoch gyda dogfennau sydd ar goll neu wallau’n ymwneud â gofynion tariff penodol, gallwch gysylltu â’r ddesg gymorth.
 rejected.notification.tdr.guidance.section.3.paragraph.2 = E-bostiwch: {0}
 rejected.notification.tdr.guidance.section.3.paragraph.2.email = tdrcommunications@hmrc.gov.uk
 

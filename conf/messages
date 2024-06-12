@@ -830,6 +830,7 @@ amendment.details.amended.value = Amended value
 
 draft.declarations.title = Your saved declarations
 draft.declarations.title.amendments = Your saved declarations and amendments
+draft.declarations.paragraph = Select a DUCR to view and complete a draft declaration. Draft declarations are saved for 30 days.
 draft.declarations.ducr = DUCR
 draft.declarations.noDucr = No DUCR added
 draft.declarations.dateSaved = Date and time saved
@@ -2176,26 +2177,22 @@ declaration.confirmation.pending.amendment.title = Your amendment request is sti
 declaration.confirmation.pending.amendment.paragraph = Go back to the {0} page to check the progress of your amendment request. It should be available within a few minutes.
 declaration.confirmation.pending.amendment.paragraph.link = Declaration status
 
-declaration.confirmation.accepted.title = Declaration accepted
-declaration.confirmation.accepted.next.1 = Further customs checks may be carried out. You will be notified about any action required on {0}, which is your registered CDS email address, and on {1}.
-declaration.confirmation.accepted.next.2 = If the status of your declaration has not changed within 2 hours from the time of this acceptance, {0}, you should {1}.
+declaration.confirmation.submitted.title = Your declaration has been submitted
+declaration.confirmation.submitted.whatHappensNext.paragraph = The declaration request is now pending until a check has been carried out. This will take a few minutes.
+declaration.confirmation.submitted.checkDetails.paragraph = You may still need to correct errors or upload a missing document.
+declaration.confirmation.submitted.checkDetails.link = Check the updated declaration details page
 
-declaration.confirmation.cleared.title = Declaration accepted, goods have permission to progress
-declaration.confirmation.cleared.body.1 = You can check the status of your declaration and print out the export accompanying document (EAD) on {0}.
-declaration.confirmation.cleared.body.2 = If your haulier is using the Goods Vehicle Movement Service (GVMS), ensure they have the Declaration Unique Consignment Reference (DUCR) so they can create a goods movement reference (GMR). If you already gave them the DUCR, the GMR can now be completed.
+declaration.confirmation.checkDetails.title = Now check the declaration status page
+declaration.confirmation.checkDetails.link = Check the declaration details page
 
-declaration.confirmation.needsDocument.title = Your declaration needs documents attached
-declaration.confirmation.needsDocument.warning = You need to upload documents ready for checking at customs.
-declaration.confirmation.needsDocument.body.2 = Check the requirements and upload documents from {0}.
+declaration.confirmation.actionRequired.title = Your declaration has been submitted - action is required
+declaration.confirmation.actionRequired.warning = Action required: Upload missing documents.
+declaration.confirmation.actionRequired.paragraph1 = Your declaration has been submitted but still requires one or more documents to be attached.
+declaration.confirmation.actionRequired.paragraph2 = Find document upload instructions on the declaration details page.
 
-declaration.confirmation.other.title = Your declaration is still being checked
-declaration.confirmation.other.body.1 = Your declaration{0}{1} will be given a movement reference number shortly. Go to {2} to find out the status of this declaration and see if you need to take any action.
-declaration.confirmation.other.body.1.link = Your declarations
-declaration.confirmation.other.body.2 = The result should be available immediately or within a few minutes.
-
-declaration.confirmation.received.title = Your declaration has been pre-lodged with HMRC
-declaration.confirmation.received.next.1 = Further customs checks will be carried out when the goods are arrived. You will be notified about any action required on {0}, which is your registered CDS email address, and on {1}.
-declaration.confirmation.received.next.2 = If the status of your declaration has not changed within 2 hours from when the goods are arrived, you should {0}.
+declaration.confirmation.pendingNotification.title = Your submitted declaration is still being checked
+declaration.confirmation.pendingNotification.paragraph1 = It is taking longer than usual to check your declaration. Allow a few minutes for this to complete.
+declaration.confirmation.pendingNotification.paragraph2 = Once completed, your declaration will be assigned a Movement Reference Number (MRN). This will be displayed on the declaration details page.
 
 declaration.confirmation.additionalType = Type of declaration
 declaration.confirmation.ducr = DUCR
@@ -2207,14 +2204,14 @@ declaration.confirmation.body.1.lrn = (your reference {0})
 declaration.confirmation.body.2 = You can check the status of your declaration and print out the export accompanying document (EAD) on {0}.
 declaration.confirmation.declaration.details.link = Declaration status
 declaration.confirmation.next.2.link = contact the National Clearance Hub
-declaration.confirmation.what.happens.next = What happens next
+declaration.confirmation.whatHappensNext = What happens next
+
+declaration.confirmation.prelodged = Pre-lodged
+declaration.confirmation.arrived = Arrived
+declaration.confirmation.simplified = Simplified
+declaration.confirmation.eidr = EIDR
 
 declaration.confirmation.whatYouCanDoNow.heading = What you can do now
-declaration.confirmation.whatYouCanDoNow.nonGvms.paragraph = You are also able to {0} by associating it, and other consignments, to a master consignment. You will also be able to {1} this declaration if you are a registered loader.
-declaration.confirmation.whatYouCanDoNow.nonGvms.paragraph.link.1 = consolidate this declaration
-declaration.confirmation.whatYouCanDoNow.nonGvms.paragraph.link.2 = arrive or depart
-declaration.confirmation.whatYouCanDoNow.paragraph.2 = If you wish, you can {0}, but you do not have to do this unless you get the notification of ‘Documents required’ when your goods are arrived.
-declaration.confirmation.whatYouCanDoNow.paragraph.2.link = upload the documents you named on your declaration (opens in new tab)
 
 declaration.exitSurvey.header = Tell us what you think
 declaration.exitSurvey.line.1 = This is a new service and we want to know what you think of it.
@@ -2223,13 +2220,16 @@ declaration.exitSurvey.link = Send us your feedback
 
 declaration.country.dropdown.hint = Type in at least 2 letters to search for a country
 
-declaration.draft.title = Your declaration has been saved
-declaration.draft.info = Your information is held until {0}
+declaration.draft.title = Your draft declaration will be saved for 30 days
+declaration.draft.info = The draft declaration will be held until {0}
 declaration.draft.saved = Your declaration has been saved up to the point at which you exited.
 declaration.draft.nextHeading = What you can do next
 declaration.draft.nextText = You can {0} or you can {1}.
-declaration.draft.nextContinueLink = continue a saved declaration
+declaration.draft.nextContinueLink = continue a saved draft declaration
 declaration.draft.nextStartFreshLink = start a new one
+declaration.draft.nextViewSummary = You can also {0}.
+declaration.draft.nextViewSummary.link = view your declaration summary
+
 declaration.draft.viewSummary = View declaration summary
 
 legal.declaration.heading = Now submit your declaration
@@ -2259,34 +2259,37 @@ rejected.amendment.guidance.section.2.paragraph.1 = If you start but do not fini
 
 rejected.notification.description.heading = Description
 rejected.notification.mrn.missing = No MRN
-rejected.notification.banner.title = Help us make fixing errors easier
-rejected.notification.banner.text = This is a new, improved page for fixing declaration errors. You can switch to the {0} of this page.
-rejected.notification.banner.linkText.0 = original version
 rejected.notification.title = Fix declaration errors
 rejected.notification.table.title = Declaration errors
-rejected.notification.warning = You need to fix these errors and resubmit your declaration when you have finished.
+rejected.notification.warning = You need to fix these errors and resubmit your declaration. Use the ‘Change’ links under the ‘Action’ heading (below) to view and fix each error. When the errors are fixed, go to the ‘Check your answers’ page and resubmit your declaration.
 rejected.notification.description.format = Error code {0}.
-rejected.notification.check.answers.paragraph = When you have fixed each error using the change links, check your answers and then resubmit your declaration.
 rejected.notification.check.answers.paragraph.tdr = Use the change links on the check your answers page and fix each error. Then resubmit your declaration.
 rejected.notification.check.answers.button = Check your answers
 
-rejected.notification.guidance.section.1.header = About fixing errors
-rejected.notification.guidance.section.1.paragraph.1 = A single error in your declaration may cause related errors to appear in other parts of the declaration. If this happens you may see repeated error codes.
+rejected.notification.fieldTable.error = Error
+rejected.notification.fieldTable.column.2.title = Your initial response
+rejected.notification.fieldTable.column.3.title = Your updated response
+rejected.notification.fieldTable.column.4.title = Action
 
-rejected.notification.guidance.section.2.header = Save your progress
-rejected.notification.guidance.section.2.paragraph.1 = If you start but don’t finish fixing errors, your progress will be saved. You can return to the {0} and continue fixing errors.
-rejected.notification.guidance.section.2.paragraph.1.link = saved declarations page
+rejected.notification.guidance.section.1.header = Any progress will be saved
+rejected.notification.guidance.section.1.paragraph.1 = If you start but don’t finish fixing errors, any progress will be saved. You can return to the {0} and continue fixing errors.
+rejected.notification.guidance.section.1.paragraph.1.link = saved declarations page
 
-rejected.notification.guidance.section.3.header = Get help fixing errors
-rejected.notification.guidance.section.3.paragraph.1 = If you need help with missing documents or errors related to specific tariff requirements, contact the help desk.
+rejected.notification.guidance.section.2.header = Help with fixing errors
+rejected.notification.guidance.section.2.paragraph.1 = A single error in your declaration may cause related errors to appear in other parts of the declaration. If this happens you may see repeated error codes.
+rejected.notification.guidance.section.2.paragraph.2 = If errors persist, use the ‘Report a problem using the Customs Declaration Service’ to report an issue.
+rejected.notification.guidance.section.2.link.1 = Report a problem using the Customs Declaration Service
+
+rejected.notification.guidance.section.3.header = Other useful resources
+rejected.notification.guidance.section.3.link.1 = Known error workarounds for the Customs Declaration Service
+rejected.notification.guidance.section.3.link.2 = Guidance on Customs Declaration Service error codes
+rejected.notification.guidance.section.3.paragraph.1 = If you need help with missing documents or errors related to specific Tariff requirements, contact the helpline.
 rejected.notification.guidance.section.3.paragraph.2 = Telephone: 0300 322 9434
 rejected.notification.guidance.section.3.paragraph.3 = Monday to Friday, 9am to 5pm (except public holidays)
+
 rejected.notification.tdr.guidance.section.3.paragraph.1 = If you need help with missing documents or errors related to specific tariff requirements, you can contact HMRC by email.
 rejected.notification.tdr.guidance.section.3.paragraph.2 = Email: {0}
 rejected.notification.tdr.guidance.section.3.paragraph.2.email = tdrcommunications@hmrc.gov.uk
-
-rejected.notification.fieldTable.column.2.title=Your initial response
-rejected.notification.fieldTable.column.3.title=Your updated response
 
 amendment.cancellation.heading = Cancel amendment request
 amendment.resubmission.heading = Resubmit amendment request
